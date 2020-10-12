@@ -19,3 +19,27 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.boo-container {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#boo-top {
+  fill: white;
+  opacity: 1;
+}
+
+.lower-rings {
+  fill: white;
+  opacity: 0.75;
+}
+
+svg {
+  width: auto;
+  height: 100%;
+}

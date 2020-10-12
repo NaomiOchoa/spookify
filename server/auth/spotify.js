@@ -48,8 +48,8 @@ router.get(
 )
 
 router.get('/refresh_token', async function(req, res, next) {
-  const refreshToken = req.user.dataValues.refreshToken
   try {
+    const refreshToken = req.user.dataValues.refreshToken
     const {data} = await axios({
       method: 'post',
       url: 'https://accounts.spotify.com/api/token',
