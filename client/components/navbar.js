@@ -5,11 +5,10 @@ import {logout} from '../store'
 const Navbar = ({logoutUser, isLoggedIn}) => (
   <React.Fragment>
     {isLoggedIn ? (
-      <nav>
-        <h1>Spookify</h1>
+      <nav className="header">
+        <h1 className="app-header">Spookify</h1>
         <div>
-          {/* The navbar will show these links after you log in */}
-          <button type="button" onClick={logoutUser}>
+          <button type="button" className="logout-button" onClick={logoutUser}>
             Logout
           </button>
         </div>
@@ -25,7 +24,8 @@ const Navbar = ({logoutUser, isLoggedIn}) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    email: state.user.email
   }
 }
 

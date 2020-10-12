@@ -11,18 +11,14 @@ import {fetchCurrentSong} from '../store/song'
 export function UserHome(props) {
   const {email, title, tempo, getCurrentSong} = props
   return (
-    <div>
-      <h3>Welcome, {email}</h3>
-      <ol>
-        <li>Step 1: Connect to your Spotify account - DONE</li>
-        <li>Step 2: Start playing your favorite playlist</li>
-        <li>Step 3: Dance to the beat with a friendly ghost</li>
-      </ol>
-      <button type="button" onClick={getCurrentSong}>
-        Dance
-      </button>
+    <div className="main-content">
       <SongDisplay title={title} />
-      <BooBounce tempo={tempo} />
+      <div className="dance-section">
+        <button type="button" className="dance-button" onClick={getCurrentSong}>
+          Dance
+        </button>
+        <BooBounce tempo={tempo} />
+      </div>
     </div>
   )
 }
@@ -32,7 +28,6 @@ export function UserHome(props) {
  */
 const mapState = state => {
   return {
-    email: state.user.email,
     title: state.song.title,
     tempo: state.song.tempo
   }

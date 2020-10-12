@@ -118,7 +118,7 @@ export default function BooBounce(props) {
       <svg
         id="Body"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="-10 -30 250.73 150.21"
+        viewBox="-50 -30 250.73 150.21"
       >
         <g className="top-rings">
           <path
