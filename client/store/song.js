@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const SET_SONG = 'SET_SONG'
 
-const defaultSong = {title: 'Start playing on Spotify', tempo: 50}
+const defaultSong = {title: 'DefaultText', tempo: 50}
 
 const setCurrentSong = song => ({
   type: SET_SONG,
