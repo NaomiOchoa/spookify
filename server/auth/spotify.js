@@ -3,15 +3,31 @@ const router = require('express').Router()
 const axios = require('axios')
 const SpotifyStrategy = require('passport-spotify').Strategy
 const {User} = require('../db/models')
-const {client_id, client_secret, redirect_uri} = require('../../secrets')
 module.exports = router
+
+let clientID
+let clientSecret
+let redirectUri
+
+if (!process.env.SPOTIFY_CLIENT_ID || !process.env.SPOTIFY_CLIENT_SECRET) {
+  console.log('NO ENV VARIABLES')
+  const {client_id, client_secret, redirect_uri} = require('../../secrets')
+  clientID = client_id
+  clientSecret = client_secret
+  redirectUri = redirect_uri
+} else {
+  console.log('FOUND ENV VARIABLES')
+  clientID = process.env.SPOTIFY_CLIENT_ID
+  clientSecret = process.env.SPOTIFY_CLIENT_SECRET
+  redirectUri = process.env.SPOTIFY_CALLBACK
+}
 
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: client_id,
-      clientSecret: client_secret,
-      callbackURL: redirect_uri
+      clientID: clientID,
+      clientSecret: clientSecret,
+      callbackURL: redirectUri
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       console.log('profile: ', profile.displayName)
@@ -54,8 +70,8 @@ router.get('/refresh_token', async function(req, res, next) {
       method: 'post',
       url: 'https://accounts.spotify.com/api/token',
       params: {
-        client_id: client_id,
-        client_secret: client_secret,
+        client_id: clientID,
+        client_secret: clientSecret,
         refresh_token: refreshToken,
         grant_type: 'refresh_token'
       },
