@@ -85,7 +85,6 @@ router.get('/current-song', async (req, res, next) => {
             }
           }
         )
-        console.log(data)
         const songId = data.item.id
         const songName = data.item.name
         const details = await axios.get(

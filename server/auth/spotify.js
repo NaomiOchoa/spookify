@@ -30,8 +30,6 @@ passport.use(
       callbackURL: redirectUri
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
-      console.log('profile: ', profile.displayName)
-      console.log('accessToken: ', accessToken)
       User.findOrCreate({
         where: {spotifyId: profile.id},
         defaults: {
@@ -79,7 +77,6 @@ router.get('/refresh_token', async function(req, res, next) {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-    console.log(data)
     await User.update(
       {
         accessToken: data.access_token
