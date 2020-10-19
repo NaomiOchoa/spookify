@@ -1,12 +1,6 @@
 <h1 align="center">Welcome to spookify 👋</h1>
 <p>
-  <a href="https://www.npmjs.com/package/spookify" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/spookify.svg">
-  </a>
   <img src="https://img.shields.io/badge/node-~12.11.1-blue.svg" />
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
 </p>
 
 > A friendly ghost that dances to your Spotify tunes
@@ -27,12 +21,6 @@ npm install
 
 ```sh
 npm run start-dev
-```
-
-## Run tests
-
-```sh
-
 ```
 
 ## Author
